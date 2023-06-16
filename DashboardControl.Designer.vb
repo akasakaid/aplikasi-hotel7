@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class LoginControl
+Partial Class DashboardControl
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -24,12 +24,13 @@ Partial Class LoginControl
     Private Sub InitializeComponent()
         SuspendLayout()
         ' 
-        ' LoginControl
+        ' DashboardControl
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        Name = "LoginControl"
-        Size = New Size(223, 194)
+        BackColor = SystemColors.ActiveCaptionText
+        Name = "DashboardControl"
+        Size = New Size(623, 365)
         ResumeLayout(False)
     End Sub
 

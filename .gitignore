@@ -1,1 +1,34 @@
-bin
+# File build Visual Basic
+*.exe
+*.pdb
+*.obj
+*.dll
+*.tlb
+*.tlh
+*.bak
+
+# File build Visual Studio
+bin/
+obj/
+
+# File debug Visual Studio
+*.exe.config
+*.pdb
+
+# File hasil kompilasi
+*.aps
+*.clb
+*.ncb
+*.suo
+*.exp
+*.lib
+*.sdf
+*.idb
+*.manifest
+*.ipch
+*.ilk
+
+# File konfigurasi Visual Studio
+*.user
+*.vspscc
+*.vssscc

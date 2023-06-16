@@ -15,7 +15,6 @@ D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\refint\AplikasiHotel7.dl
 D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.pdb
 D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.genruntimeconfig.cache
 D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\ref\AplikasiHotel7.dll
-D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.LoginControl.resources
 D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\BCrypt.Net-Next.dll
 D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
 D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
@@ -24,4 +23,6 @@ D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\runtimes\win-x86\native\
 D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\source\repos\AplikasiHotel7\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.vbproj.CopyComplete
+D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.Resources.resources
 D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.Form2.resources
+D:\source\repos\AplikasiHotel7\obj\Debug\net6.0-windows\AplikasiHotel7.DashboardControl.resources

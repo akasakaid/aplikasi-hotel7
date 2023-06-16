@@ -1,10 +1,11 @@
 ﻿Imports BCrypt.Net.BCrypt
 Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class Form1
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'login
-
+        passwordBox.UseSystemPasswordChar = True
         Dim PanjangWindow = Me.ClientSize.Width
         Dim TinggiWindow = Me.ClientSize.Height
         'TextBox1.Left = (Me.ClientSize.Width - TextBox1.Width) \ 2
@@ -37,41 +38,34 @@ Public Class Form1
                 Dim command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@value", username)
                 Dim reader As SqlDataReader = command.ExecuteReader()
-                'MsgBox(reader.Read())
-                'If reader.Read() <> True Then
-                'MsgBox("username atau password salah !")
-                'connection.Close()
-                'reader.Close()
-                'Exit Sub
-                'End If
-                'MsgBox(reader.Read())
-                'MsgBox("koneksi berhasil")
-                While reader.Read()
-                    'MsgBox("babi")
+                Dim path As String = "D:\logs.txt"
+                If reader.Read() Then
                     Dim resId As Integer = reader.GetInt32(0)
                     Dim resName As String = reader.GetString(1)
                     Dim resEmail As String = reader.GetString(2)
                     Dim resPassword As String = reader.GetString(3)
                     Dim resLevel As String = reader.GetString(4)
-                    MsgBox(resPassword)
+                    'MsgBox(resPassword)
                     If BCrypt.Net.BCrypt.Verify(password, resPassword) Then
-                        'MsgBox("password valdi")
+                        connection.Close()
                         Me.Hide()
-                        Dim form2 As New Form2
+                        Dim form2 As New Form2()
                         form2.ShowDialog()
                     Else
+                        boxUsername.Text = ""
+                        passwordBox.Text = ""
                         MsgBox("username atau password salah !")
                     End If
-                    'Console.WriteLine(Resusername)
-                    'MsgBox(resName)
-                End While
-                reader.Close()
-                connection.Close()
+                Else
+                    boxUsername.Text = ""
+                    passwordBox.Text = ""
+                    MsgBox("username atau password salah !")
+                End If
+
+
             Catch ex As Exception
                 MsgBox(ex.ToString())
             End Try
-
-
         End If
     End Sub
 End Class
