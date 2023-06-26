@@ -4,6 +4,9 @@ Imports System.IO
 
 Public Class Form1
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Hide()
+        Dim form2 As New Form2()
+        form2.ShowDialog()
         'login
         passwordBox.UseSystemPasswordChar = True
         Dim PanjangWindow = Me.ClientSize.Width
@@ -20,10 +23,10 @@ Public Class Form1
         'boxUsername.Enabled = False
         username.Location = New Point((WidthPanel - username.Width) \ 2, (HeightPanel - username.Height) - 200)
         password.Location = New Point((WidthPanel - password.Width) \ 2, (HeightPanel - password.Height) - 130)
-        buttonLogin.Location = New Point((WidthPanel - buttonLogin.Width) \ 2, (HeightPanel - buttonLogin.Height) - 50)
+        ButtonLogin.Location = New Point((WidthPanel - ButtonLogin.Width) \ 2, (HeightPanel - ButtonLogin.Height) - 50)
     End Sub
 
-    Private Sub buttonLogin_Click(sender As Object, e As EventArgs) Handles buttonLogin.Click
+    Private Sub ButtonLogin_Click(sender As Object, e As EventArgs) Handles ButtonLogin.Click
         If boxUsername.Text = "" And passwordBox.Text = "" Then
             MsgBox("Username dan Password harus diisi !")
         End If
@@ -34,7 +37,7 @@ Public Class Form1
                 Dim connectionString As String = "Data Source=localhost;Initial Catalog=db_hotel;User ID=mine;Password=user@123;"
                 Dim connection As New SqlConnection(connectionString)
                 connection.Open()
-                Dim query As String = "SELECT TOP (1) * FROM [tb_pegawai] WHERE [nama] = @value"
+                Dim query As String = "SELECT TOP (1) * FROM [tb_pegawai] WHERE [username] = @value"
                 Dim command As New SqlCommand(query, connection)
                 command.Parameters.AddWithValue("@value", username)
                 Dim reader As SqlDataReader = command.ExecuteReader()
@@ -42,11 +45,18 @@ Public Class Form1
                 If reader.Read() Then
                     Dim resId As Integer = reader.GetInt32(0)
                     Dim resName As String = reader.GetString(1)
-                    Dim resEmail As String = reader.GetString(2)
-                    Dim resPassword As String = reader.GetString(3)
-                    Dim resLevel As String = reader.GetString(4)
+                    Dim resUsername As String = reader.GetString(2)
+                    Dim resEmail As String = reader.GetString(3)
+                    Dim resPassword As String = reader.GetString(4)
+                    Dim resLevel As String = reader.GetString(5)
+                    My.Computer.FileSystem.WriteAllText(path, reader.Read().ToString(), True)
                     'MsgBox(resPassword)
                     If BCrypt.Net.BCrypt.Verify(password, resPassword) Then
+                        User.Id = resId
+                        User.name = resName
+                        Level = resLevel
+                        User.username = resUsername
+                        User.email = resEmail
                         connection.Close()
                         Me.Hide()
                         Dim form2 As New Form2()

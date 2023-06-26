@@ -27,7 +27,7 @@ Partial Class Form1
         passwordBox = New TextBox()
         username = New GroupBox()
         boxUsername = New TextBox()
-        buttonLogin = New Button()
+        ButtonLogin = New Button()
         FormName = New Label()
         Panel.SuspendLayout()
         password.SuspendLayout()
@@ -40,7 +40,7 @@ Partial Class Form1
         Panel.BackColor = Color.GhostWhite
         Panel.Controls.Add(password)
         Panel.Controls.Add(username)
-        Panel.Controls.Add(buttonLogin)
+        Panel.Controls.Add(ButtonLogin)
         Panel.Controls.Add(FormName)
         Panel.Location = New Point(248, 131)
         Panel.Name = "Panel"
@@ -50,6 +50,7 @@ Partial Class Form1
         ' password
         ' 
         password.Controls.Add(passwordBox)
+        password.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point)
         password.Location = New Point(78, 156)
         password.Name = "password"
         password.Size = New Size(200, 63)
@@ -61,12 +62,13 @@ Partial Class Form1
         ' 
         passwordBox.Location = New Point(32, 22)
         passwordBox.Name = "passwordBox"
-        passwordBox.Size = New Size(120, 23)
+        passwordBox.Size = New Size(120, 26)
         passwordBox.TabIndex = 0
         ' 
         ' username
         ' 
         username.Controls.Add(boxUsername)
+        username.Font = New Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point)
         username.Location = New Point(78, 75)
         username.Name = "username"
         username.Size = New Size(200, 63)
@@ -78,25 +80,25 @@ Partial Class Form1
         ' 
         boxUsername.Location = New Point(32, 22)
         boxUsername.Name = "boxUsername"
-        boxUsername.Size = New Size(120, 23)
+        boxUsername.Size = New Size(120, 26)
         boxUsername.TabIndex = 0
         ' 
-        ' buttonLogin
+        ' ButtonLogin
         ' 
-        buttonLogin.Location = New Point(62, 225)
-        buttonLogin.Name = "buttonLogin"
-        buttonLogin.Size = New Size(100, 30)
-        buttonLogin.TabIndex = 2
-        buttonLogin.Text = "Login"
-        buttonLogin.UseVisualStyleBackColor = True
+        ButtonLogin.Location = New Point(62, 225)
+        ButtonLogin.Name = "ButtonLogin"
+        ButtonLogin.Size = New Size(100, 30)
+        ButtonLogin.TabIndex = 2
+        ButtonLogin.Text = "Login"
+        ButtonLogin.UseVisualStyleBackColor = True
         ' 
         ' FormName
         ' 
         FormName.AutoSize = True
-        FormName.Font = New Font("Segoe UI", 40F, FontStyle.Regular, GraphicsUnit.Point)
+        FormName.Font = New Font("Arial", 40F, FontStyle.Regular, GraphicsUnit.Point)
         FormName.Location = New Point(100, 0)
         FormName.Name = "FormName"
-        FormName.Size = New Size(178, 72)
+        FormName.Size = New Size(174, 61)
         FormName.TabIndex = 1
         FormName.Text = "Login "
         ' 
@@ -122,7 +124,7 @@ Partial Class Form1
     Friend WithEvents Panel As Panel
     Friend WithEvents boxUsername As TextBox
     Friend WithEvents FormName As Label
-    Friend WithEvents buttonLogin As Button
+    Friend WithEvents ButtonLogin As Button
     Friend WithEvents username As GroupBox
     Friend WithEvents password As GroupBox
     Friend WithEvents passwordBox As TextBox
