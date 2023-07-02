@@ -6,17 +6,20 @@
     Public reservasi As New ReservasiControl()
     Public tamu As New TamuControl()
     Public pegawai As New PegawaiControl()
+    Public uang As New UangControl()
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' set name in module User / can be removed
-        User.name = "admin"
-        User.Level = "admin"
-        User.id = "1"
+        'User.name = "admin"
+        'User.Level = "admin"
+        'User.id = "1"
 
         If User.Level = "admin" Then
             BtnPegawai.Enabled = True
+            BtnKeuangan.Enabled = True
         Else
             BtnPegawai.Enabled = False
+            BtnKeuangan.Enabled = False
         End If
         ' initialization client height and client width
         TinggiWindow = Me.ClientSize.Height
@@ -46,19 +49,39 @@
         Me.Controls.Add(tamu)
         Me.Controls.Add(kamar)
         Me.Controls.Add(pegawai)
+        Me.Controls.Add(uang)
         dashboard.Visible = True
         reservasi.Visible = False
         tamu.Visible = False
         kamar.Visible = False
         pegawai.Visible = False
+        uang.Visible = False
 
         ' customize properties in DashboardControl
-        dashboard.TxtName.Text = "Masuk sebagai " & User.name
-        dashboard.TxtName.Location = New Point(50, 20)
+        'dashboard.TxtName.Text = "Masuk sebagai " & User.name
+        'dashboard.TxtName.Location = New Point(50, 20)
         dashboard.Size = New Size((PanjangWindow - PanelSideBar.Width) - 100, (TinggiWindow - 100))
         dashboard.Location = New Point((PanelSideBar.Width + 50), 50)
-        dashboard.GroupBox1.Location = New Point((dashboard.Location.X - 150), (dashboard.Location.Y + 50))
-
+        dashboard.GroupBox1.Location = New Point((dashboard.Location.X - 150), (dashboard.Location.Y + 30))
+        dashboard.GroupBox2.Location = New Point((dashboard.Location.X + 150), (dashboard.Location.Y + 30))
+        dashboard.GroupBox3.Location = New Point((dashboard.Location.X + 450), (dashboard.Location.Y + 30))
+        dashboard.GroupBox4.Location = New Point((dashboard.Location.X - 150), (dashboard.Location.Y + 200))
+        dashboard.GroupBox5.Location = New Point((dashboard.Location.X + 150), (dashboard.Location.Y + 200))
+        dashboard.GroupBox6.Location = New Point((dashboard.Location.X + 450), (dashboard.Location.Y + 200))
+        dashboard.GroupBox7.Location = New Point((dashboard.Location.X - 150), (dashboard.Location.Y + 370))
+        dashboard.GroupBox8.Location = New Point((dashboard.Location.X + 150), (dashboard.Location.Y + 370))
+        dashboard.GroupBox9.Location = New Point((dashboard.Location.X + 450), (dashboard.Location.Y + 370))
+        dashboard.Start()
+        dashboard.Label3.Location = New Point((dashboard.GroupBox1.Width - dashboard.Label3.Width) / 2, (dashboard.GroupBox1.Height - dashboard.Label3.Height) / 2)
+        dashboard.Label4.Location = New Point((dashboard.GroupBox2.Width - dashboard.Label4.Width) / 2, (dashboard.GroupBox2.Height - dashboard.Label4.Height) / 2)
+        dashboard.Label5.Location = New Point((dashboard.GroupBox3.Width - dashboard.Label5.Width) / 2, (dashboard.GroupBox3.Height - dashboard.Label5.Height) / 2)
+        dashboard.Label6.Location = New Point((dashboard.GroupBox4.Width - dashboard.Label6.Width) / 2, (dashboard.GroupBox4.Height - dashboard.Label6.Height) / 2)
+        dashboard.Label7.Location = New Point((dashboard.GroupBox5.Width - dashboard.Label7.Width) / 2, (dashboard.GroupBox5.Height - dashboard.Label7.Height) / 2)
+        dashboard.Label8.Location = New Point((dashboard.GroupBox6.Width - dashboard.Label8.Width) / 2, (dashboard.GroupBox6.Height - dashboard.Label8.Height) / 2)
+        dashboard.Label9.Location = New Point((dashboard.GroupBox7.Width - dashboard.Label9.Width) / 2, (dashboard.GroupBox7.Height - dashboard.Label9.Height) / 2)
+        dashboard.Label10.Location = New Point((dashboard.GroupBox8.Width - dashboard.Label10.Width) / 2, (dashboard.GroupBox8.Height - dashboard.Label10.Height) / 2)
+        dashboard.Label11.Location = New Point((dashboard.GroupBox9.Width - dashboard.Label11.Width) / 2, (dashboard.GroupBox9.Height - dashboard.GroupBox9.Height) / 2)
+        dashboard.GroupBox9.Visible = False
     End Sub
 
     Private Sub BtnDashboard_Click(sender As Object, e As EventArgs) Handles BtnDashboard.Click
@@ -67,6 +90,8 @@
         tamu.Visible = False
         kamar.Visible = False
         pegawai.Visible = False
+        uang.Visible = False
+        dashboard.Start()
     End Sub
 
     Private Sub BtnLogout_Click(sender As Object, e As EventArgs) Handles BtnLogout.Click
@@ -81,14 +106,65 @@
 
     Private Sub BtnReservasi_Click(sender As Object, e As EventArgs) Handles BtnReservasi.Click
         'Me.Controls.Add(reservasi)
+        reservasi.Start()
         dashboard.Visible = False
         reservasi.Visible = True
         tamu.Visible = False
         kamar.Visible = False
         pegawai.Visible = False
+        uang.Visible = False
         ' customize size and location for reservasi (user control)
         reservasi.Size = New Size((PanjangWindow - PanelSideBar.Width) - 100, (TinggiWindow - 100))
         reservasi.Location = New Point((PanelSideBar.Width + 50), 50)
+        ' lokasi label 
+        reservasi.Label1.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y))
+        reservasi.Label2.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 40))
+        reservasi.Label3.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 80))
+        reservasi.Label4.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 120))
+        reservasi.Label12.Location = New Point((reservasi.Location.X + 450), (reservasi.Location.Y + 250))
+        'reservasi.Label5.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 120))
+        ' lokasi checkbox
+        reservasi.CheckBox1.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 160))
+        reservasi.CheckBox2.Location = New Point((reservasi.Location.X), (reservasi.Location.Y + 160))
+        ' lokasi textbox
+        reservasi.TextBox1.Location = New Point((reservasi.Location.X), (reservasi.Location.Y))
+        reservasi.TextBox2.Location = New Point((reservasi.Location.X), (reservasi.Location.Y + 40))
+        ' textbox pencarian
+        reservasi.TextBox3.Location = New Point((reservasi.Location.X + 500), (reservasi.Location.Y + 250))
+        ' lokasi date picker
+        reservasi.DateTimePicker1.Location = New Point((reservasi.Location.X), (reservasi.Location.Y + 80))
+        reservasi.DateTimePicker2.Location = New Point((reservasi.Location.X), (reservasi.Location.Y + 120))
+        ' lokasi groupbox
+        reservasi.GroupBox1.Location = New Point((reservasi.Location.X + 300), (reservasi.Location.Y))
+        reservasi.GroupBox2.Location = New Point((reservasi.Location.X + 300), (reservasi.Location.Y + 120))
+        reservasi.GroupBox3.Location = New Point((reservasi.Location.X + 570), (reservasi.Location.Y))
+        ' lokasi button
+        reservasi.Button1.Location = New Point((reservasi.Location.X - 200), (reservasi.Location.Y + 200))
+        reservasi.Button2.Location = New Point((reservasi.Location.X - 100), (reservasi.Location.Y + 200))
+        reservasi.Button3.Location = New Point((reservasi.Location.X), (reservasi.Location.Y + 200))
+        reservasi.Button4.Location = New Point((reservasi.Location.X + 100), (reservasi.Location.Y + 200))
+        reservasi.Button5.Location = New Point((reservasi.Location.X + 200), (reservasi.Location.Y + 200))
+        ' lokasi datagrid
+        reservasi.DataGridView1.Size = New Size((reservasi.Width - 100), reservasi.Height - 350)
+        reservasi.DataGridView1.Location = New Point((PanelSideBar.Location.X + 50), (reservasi.Location.Y + 280))
+        reservasi.DataGridView1.Columns(0).HeaderText = "ID"
+        reservasi.DataGridView1.Columns(1).HeaderText = "Nama Tamu"
+        reservasi.DataGridView1.Columns(2).HeaderText = "ID Kamar"
+        reservasi.DataGridView1.Columns(3).HeaderText = "Tanggal check in"
+        reservasi.DataGridView1.Columns(4).HeaderText = "Tanggal check out"
+        reservasi.DataGridView1.Columns(5).HeaderText = "Jam check in"
+        reservasi.DataGridView1.Columns(6).HeaderText = "Jam check out"
+        reservasi.DataGridView1.Columns(7).HeaderText = "Tagihan"
+        reservasi.DataGridView1.Columns(8).HeaderText = "Di Masukkan Oleh"
+        reservasi.DataGridView1.Columns(0).Width = Math.Ceiling((reservasi.DataGridView1.Size.Width / 8 - 50) / 10) * 10
+        reservasi.DataGridView1.Columns(1).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(2).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(3).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(4).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(5).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(6).Width = reservasi.DataGridView1.Size.Width / 8
+        reservasi.DataGridView1.Columns(7).Width = reservasi.DataGridView1.Size.Width / 8
+        'MsgBox(reservasi.DataGridView1.Size.Width.ToString())
     End Sub
 
     Private Sub BtnPegawai_Click(sender As Object, e As EventArgs) Handles BtnPegawai.Click
@@ -98,6 +174,7 @@
         tamu.Visible = False
         kamar.Visible = False
         pegawai.Visible = True
+        uang.Visible = False
         'pegawai.FormLevel.Items.Add("admin")
         'pegawai.FormLevel.Items.Add("pegawai")
         ' customize size and location for pegawai (user control)
@@ -145,6 +222,7 @@
         tamu.Visible = False
         kamar.Visible = True
         pegawai.Visible = False
+        uang.Visible = False
         kamar.Start()
         kamar.ViewData()
         kamar.ViewKamarTersedia()
@@ -178,6 +256,7 @@
         kamar.Label4.Location = New Point((kamar.Location.X - 150), (kamar.Location.Y + 120))
         kamar.Label5.Location = New Point((kamar.Location.X - 150), (kamar.Location.Y + 160))
         kamar.Label6.Location = New Point((kamar.Location.X + 450), (kamar.Location.Y + 270))
+        kamar.CheckBox1.Location = New Point((kamar.Location.X + 200), (kamar.Location.Y + 270))
         ' lokasi form
         kamar.ComboBox1.Location = New Point((kamar.Location.X + 50), (kamar.Location.Y))
         kamar.TextBox1.Location = New Point((kamar.Location.X + 50), (kamar.Location.Y + 40))
@@ -203,22 +282,30 @@
         tamu.Visible = True
         kamar.Visible = False
         pegawai.Visible = False
+        uang.Visible = False
         ' awalan
         tamu.start()
         ' lokasi dan ukuran user control (tamu)
         tamu.Size = New Size((PanjangWindow - PanelSideBar.Width) - 100, (TinggiWindow - 100))
         tamu.Location = New Point((PanelSideBar.Width + 50), 50)
+        ' lokasi groupbox
+        tamu.GroupBox1.Location = New Point((tamu.Location.X + 300), (tamu.Location.Y))
+        tamu.GroupBox2.Location = New Point((tamu.Location.X + 550), (tamu.Location.Y))
         ' lokasi label form 
         tamu.Label1.Location = New Point((tamu.Location.X - 150), (tamu.Location.Y))
         tamu.Label2.Location = New Point((tamu.Location.X - 150), (tamu.Location.Y + 40))
         tamu.Label3.Location = New Point((tamu.Location.X - 150), (tamu.Location.Y + 80))
         tamu.Label4.Location = New Point((tamu.Location.X - 150), (tamu.Location.Y + 120))
         tamu.Label5.Location = New Point((tamu.Location.X - 170), (tamu.Location.Y + 210))
+        tamu.Label6.Location = New Point((tamu.Location.X + 430), (tamu.Location.Y + 210))
+        tamu.Label7.Location = New Point((tamu.GroupBox1.Width - tamu.Label7.Width) / 2, (tamu.GroupBox1.Height - tamu.Label7.Height) / 2)
+        tamu.Label8.Location = New Point((tamu.GroupBox2.Width - tamu.Label8.Width) / 2, (tamu.GroupBox2.Height - tamu.Label8.Height) / 2)
         ' lokasi input form
         tamu.TextBox1.Location = New Point((tamu.Location.X - 20), (tamu.Location.Y))
         tamu.TextBox2.Location = New Point((tamu.Location.X - 20), (tamu.Location.Y + 40))
         tamu.TextBox3.Location = New Point((tamu.Location.X - 20), (tamu.Location.Y + 80))
         tamu.TextBox4.Location = New Point((tamu.Location.X - 20), (tamu.Location.Y + 120))
+        tamu.TextBox5.Location = New Point((tamu.Location.X + 480), (tamu.Location.Y + 210))
         ' lokasi button
         tamu.Button1.Location = New Point((tamu.Location.X - 150), (tamu.Location.Y + 165))
         tamu.Button2.Location = New Point((tamu.Location.X - 50), (tamu.Location.Y + 165))
@@ -228,5 +315,65 @@
         tamu.DataGridView1.Size = New Size((tamu.Width - 100), tamu.Height - 320)
         ' lokasi datagridview untuk daftar tamu
         tamu.DataGridView1.Location = New Point((PanelSideBar.Location.X + 50), (tamu.Location.Y + 240))
+        tamu.DataGridView1.Columns(0).HeaderText = "ID Tamu"
+        tamu.DataGridView1.Columns(1).HeaderText = "Nama Tamu"
+        tamu.DataGridView1.Columns(2).HeaderText = "No Telepon"
+        tamu.DataGridView1.Columns(3).HeaderText = "No Identitas"
+        tamu.DataGridView1.Columns(4).HeaderText = "Email"
+        tamu.DataGridView1.Columns(5).HeaderText = "Di Masukkan Oleh"
+        ' mengatur ukuran kolom di data grid view dengan rumus panjang datagridview dibagi jumlah kolom
+        tamu.DataGridView1.Columns(0).Width = tamu.DataGridView1.Size.Width / 6
+        tamu.DataGridView1.Columns(1).Width = tamu.DataGridView1.Size.Width / 6
+        tamu.DataGridView1.Columns(2).Width = tamu.DataGridView1.Size.Width / 6
+        tamu.DataGridView1.Columns(3).Width = tamu.DataGridView1.Size.Width / 6
+        tamu.DataGridView1.Columns(4).Width = tamu.DataGridView1.Size.Width / 6
+        tamu.DataGridView1.Columns(5).Width = tamu.DataGridView1.Size.Width / 6
+    End Sub
+
+    Private Sub BtnKeuangan_Click(sender As Object, e As EventArgs) Handles BtnKeuangan.Click
+        dashboard.Visible = False
+        reservasi.Visible = False
+        tamu.Visible = False
+        kamar.Visible = False
+        pegawai.Visible = False
+        uang.Visible = True
+        uang.Start()
+        uang.Size = New Size((PanjangWindow - PanelSideBar.Width) - 100, (TinggiWindow - 100))
+        uang.Location = New Point((PanelSideBar.Width + 50), 50)
+
+        ' lokasi label
+        uang.Label1.Location = New Point((uang.Location.X - 150), (uang.Location.Y))
+        uang.Label2.Location = New Point((uang.Location.X - 150), (uang.Location.Y + 40))
+
+        'lokasi button
+        uang.Button1.Location = New Point((uang.Location.X - 150), (uang.Location.Y + 100))
+        uang.Button2.Location = New Point((uang.Location.X - 50), (uang.Location.Y + 100))
+        uang.Button3.Location = New Point((uang.Location.X + 50), (uang.Location.Y + 100))
+        uang.Button4.Location = New Point((uang.Location.X + 150), (uang.Location.Y + 100))
+        ' lokasi textbox
+        uang.TextBox1.Location = New Point((uang.Location.X + 40), (uang.Location.Y))
+        uang.TextBox2.Location = New Point((uang.Location.X + 40), (uang.Location.Y + 40))
+
+        ' lokasi grupbox
+        uang.GroupBox1.Location = New Point((uang.Location.X + 300), (uang.Location.Y))
+        uang.GroupBox2.Location = New Point((uang.Location.X + 550), (uang.Location.Y))
+        uang.GroupBox3.Location = New Point((uang.Location.X + 300), (uang.Location.Y + 150))
+        uang.GroupBox4.Location = New Point((uang.Location.X + 550), (uang.Location.Y + 150))
+
+        uang.DataGridView1.Size = New Size((uang.Width - 100), uang.Height - 400)
+        uang.DataGridView1.Location = New Point((PanelSideBar.Location.X + 50), (uang.Location.Y + 300))
+        
+        uang.DataGridView1.Columns(0).HeaderText = "ID"
+        uang.DataGridView1.Columns(1).HeaderText = "Total Pengeluaran"
+        uang.DataGridView1.Columns(2).HeaderText = "Deskripsi"
+        uang.DataGridView1.Columns(3).HeaderText = "UPDATED AT"
+        uang.DataGridView1.Columns(4).HeaderText = "CREATED AT"
+
+        uang.DataGridView1.Columns(0).Width = uang.DataGridView1.Size.Width / 5
+        uang.DataGridView1.Columns(1).Width = uang.DataGridView1.Size.Width / 5
+        uang.DataGridView1.Columns(2).Width = uang.DataGridView1.Size.Width / 5
+        uang.DataGridView1.Columns(3).Width = uang.DataGridView1.Size.Width / 5
+        uang.DataGridView1.Columns(4).Width = uang.DataGridView1.Size.Width / 5
+
     End Sub
 End Class

@@ -1,0 +1,10 @@
+CREATE TABLE [dbo].[tb_kamar] (
+  [id] int NOT NULL IDENTITY PRIMARY KEY,
+  [tipe_kamar] varchar(100) NOT NULL,
+  [harga] varchar(100) NOT NULL,
+  [status] varchar(100) NOT NULL,
+  [tersedia] int NOT NULL,
+  [updated_at] datetime NULL,
+  [created_at] datetime NULL
+);
+

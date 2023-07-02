@@ -4,9 +4,11 @@ Imports System.IO
 
 Public Class Form1
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Hide()
-        Dim form2 As New Form2()
-        form2.ShowDialog()
+        'Dim jam As DateTime = DateTime.Parse("2023-06-30 09:39:23")
+        'MsgBox(jam.ToString())
+        'Me.Hide()
+        'Dim form2 As New Form2()
+        'Form2.ShowDialog()
         'login
         passwordBox.UseSystemPasswordChar = True
         Dim PanjangWindow = Me.ClientSize.Width
