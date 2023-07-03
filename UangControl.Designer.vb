@@ -27,7 +27,9 @@ Partial Class UangControl
         TextBox1 = New TextBox()
         TextBox2 = New TextBox()
         GroupBox1 = New GroupBox()
+        Label3 = New Label()
         GroupBox2 = New GroupBox()
+        Label4 = New Label()
         GroupBox3 = New GroupBox()
         GroupBox4 = New GroupBox()
         Button1 = New Button()
@@ -35,6 +37,12 @@ Partial Class UangControl
         Button3 = New Button()
         Button4 = New Button()
         DataGridView1 = New DataGridView()
+        Label5 = New Label()
+        Label6 = New Label()
+        GroupBox1.SuspendLayout()
+        GroupBox2.SuspendLayout()
+        GroupBox3.SuspendLayout()
+        GroupBox4.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -75,6 +83,7 @@ Partial Class UangControl
         ' GroupBox1
         ' 
         GroupBox1.BackColor = Color.MediumOrchid
+        GroupBox1.Controls.Add(Label3)
         GroupBox1.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox1.ForeColor = Color.WhiteSmoke
         GroupBox1.Location = New Point(580, 34)
@@ -84,9 +93,19 @@ Partial Class UangControl
         GroupBox1.TabStop = False
         GroupBox1.Text = "Pendapatan Hari Ini"
         ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(71, 44)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(56, 18)
+        Label3.TabIndex = 0
+        Label3.Text = "Label3"
+        ' 
         ' GroupBox2
         ' 
         GroupBox2.BackColor = Color.MediumOrchid
+        GroupBox2.Controls.Add(Label4)
         GroupBox2.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox2.ForeColor = Color.WhiteSmoke
         GroupBox2.Location = New Point(580, 149)
@@ -96,9 +115,19 @@ Partial Class UangControl
         GroupBox2.TabStop = False
         GroupBox2.Text = "Pendapatan Bulan Ini"
         ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(71, 43)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(56, 18)
+        Label4.TabIndex = 1
+        Label4.Text = "Label4"
+        ' 
         ' GroupBox3
         ' 
         GroupBox3.BackColor = Color.MediumOrchid
+        GroupBox3.Controls.Add(Label5)
         GroupBox3.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox3.ForeColor = Color.WhiteSmoke
         GroupBox3.Location = New Point(580, 265)
@@ -111,6 +140,7 @@ Partial Class UangControl
         ' GroupBox4
         ' 
         GroupBox4.BackColor = Color.MediumOrchid
+        GroupBox4.Controls.Add(Label6)
         GroupBox4.Font = New Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point)
         GroupBox4.ForeColor = Color.WhiteSmoke
         GroupBox4.Location = New Point(361, 192)
@@ -169,6 +199,24 @@ Partial Class UangControl
         DataGridView1.Size = New Size(240, 150)
         DataGridView1.TabIndex = 11
         ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.Location = New Point(71, 49)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(56, 18)
+        Label5.TabIndex = 2
+        Label5.Text = "Label5"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(68, 39)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(56, 18)
+        Label6.TabIndex = 3
+        Label6.Text = "Label6"
+        ' 
         ' UangControl
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -189,6 +237,14 @@ Partial Class UangControl
         Controls.Add(Label1)
         Name = "UangControl"
         Size = New Size(955, 615)
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        GroupBox2.ResumeLayout(False)
+        GroupBox2.PerformLayout()
+        GroupBox3.ResumeLayout(False)
+        GroupBox3.PerformLayout()
+        GroupBox4.ResumeLayout(False)
+        GroupBox4.PerformLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
@@ -207,4 +263,8 @@ Partial Class UangControl
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

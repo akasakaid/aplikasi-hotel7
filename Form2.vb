@@ -101,7 +101,7 @@
         User.email = ""
         Me.Close()
         Dim form1 As New Form1()
-        form1.ShowDialog()
+        form1.Show()
     End Sub
 
     Private Sub BtnReservasi_Click(sender As Object, e As EventArgs) Handles BtnReservasi.Click
